@@ -1,0 +1,5 @@
+#!/bin/bash
+cd /opt/IBController
+socat TCP-LISTEN:4003,fork TCP:0.0.0.0:4001&
+xvfb-daemon-run \
+  ./IBControllerGatewayStart.sh

@@ -1,0 +1,9 @@
+ibgw:
+  build: .
+  environment:
+    - "VNC_PASSWORD=micai2015"
+  ports:
+    - "5900:5900"
+    - "4003:4003"
+    - "4001:4001"
+    - "7462:7462"
