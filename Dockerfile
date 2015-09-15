@@ -8,13 +8,14 @@ RUN apt-get update -y \
     && apt-get clean
 
 WORKDIR /tmp
-RUN mkdir /root/IBController &&  wget https://github.com/ib-controller/ib-controller/releases/download/2.13.1/IBController-2.13.1.zip && \
-	wget http://download2.interactivebrokers.com/download/unixmacosx.jar
+RUN mkdir /root/IBController &&  wget https://github.com/zz/ib-controller/releases/download/2.13.1-api/IBController-2.13.1-api.zip && \
+	wget http://download2.interactivebrokers.com/download/unixmacosx_latest.jar
 WORKDIR /opt
-RUN unzip /tmp/IBController-2.13.1.zip && jar xf /tmp/unixmacosx.jar && \
+RUN unzip /tmp/IBController-2.13.1-api.zip && jar xf /tmp/unixmacosx_latest.jar && \
 	chmod a+x IBController/*.sh
 
 COPY config/IBController.ini /root/IBController/IBController.ini
+COPY config/jts.ini /opt/IBJts
 COPY init/xvfb_init /etc/init.d/xvfb
 COPY init/vnc_init /etc/init.d/vnc
 COPY bin/xvfb-daemon-run /usr/bin/xvfb-daemon-run
