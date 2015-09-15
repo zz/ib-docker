@@ -1,7 +1,7 @@
 ibgw:
   build: .
   environment:
-    - "VNC_PASSWORD=micai2015"
+    - "VNC_PASSWORD=password"
   ports:
     - "5900:5900"
     - "4003:4003"
